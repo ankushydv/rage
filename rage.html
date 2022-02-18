@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAGE</title>
+  </head>
+  <style>
+    body {
+      background: #4c268f;
+      color: #99eeb4;
+      height: 100vh;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    span {
+      position: relative;
+      font-family: "Avenir Next", sans-serif;
+      font-weight: 1000;
+      font-size: 24px;
+      text-transform: uppercase;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      text-align: center;
+      cursor: copy;
+    }
+    .glitch-c {
+      height: 80px;
+      width: 300px;
+    }
+    .glitch-c span,
+    span::after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      font-weight: 900;
+      background: linear-gradient(135deg, #ffff62 95%, transparent 5%);
+      border: 0;
+      color: #4c268f;
+      letter-spacing: 1.8px;
+      line-height: 1.25em;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .glitch-c span::after {
+      width: 100%;
+      height: 100%;
+      --slice-0: inset(50% 50% 50% 50%);
+      --slice-1: inset(80% -6px 0 0);
+      --slice-2: inset(50% -6px 30% 0);
+      --slice-3: inset(10% -6px 85% 0);
+      --slice-4: inset(40% -6px 43% 0);
+      --slice-5: inset(80% -6px 5% 0);
+      content: "R A G E";
+      display: flex;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(135deg, #ffff62 95%, #000 5%);
+      text-shadow: -3px -3px 0 #000, 3px 3px 0 #ff0;
+      clip-path: var(--slice-0);
+    }
+    .glitch-c span:hover::after {
+      animation: glitch 1s;
+      animation-timing-function: steps(2, end);
+    }
+    .msg > h1{
+        color: #ffff62;
+
+    }    
+    @media only screen and (max-width:777px)  {
+        .main{
+            display:none;
+        }
+    }
+    @media only screen and (min-width:777px)  {
+        .msg{
+            display:none;
+        }
+    }
+
+    @keyframes glitch {
+      0% {
+        clip-path: var(--slice-1);
+        transform: translate(-20px, -10px);
+      }
+
+      10% {
+        clip-path: var(--slice-3);
+        transform: translate(10px, 10px);
+      }
+
+      20% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 10px);
+      }
+
+      30% {
+        clip-path: var(--slice-3);
+        transform: translate(0px, 5px);
+      }
+
+      40% {
+        clip-path: var(--slice-2);
+        transform: translate(-5px, 0px);
+      }
+
+      50% {
+        clip-path: var(--slice-3);
+        transform: translate(5px, 0px);
+      }
+
+      60% {
+        clip-path: var(--slice-4);
+        transform: translate(5px, 10px);
+      }
+
+      70% {
+        clip-path: var(--slice-2);
+        transform: translate(-10px, 10px);
+      }
+
+      80% {
+        clip-path: var(--slice-5);
+        transform: translate(20px, -10px);
+      }
+
+      90% {
+        clip-path: var(--slice-1);
+        transform: translate(-10px, 0px);
+      }
+
+      100% {
+        clip-path: var(--slice-1);
+        transform: translate(0);
+      }
+    }
+  </style>
+  <body>
+    <div class="main">
+      <div class="content">
+        <div id="glitch" class="glitch-c">
+          <span filter-content="S">Hover</span>
+        </div>
+      </div>
+    </div>
+    <div class="msg">
+        <h1> Only  on _😏_ <i>Computer</i></h1>
+    </div>
+    <script>
+      console.log(document.title);
+      const message = "Lose";
+      setInterval(function () {
+        if (document.title === "RAGE") {
+          document.title = "LOSE";
+        } else {
+          document.title = "RAGE";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
